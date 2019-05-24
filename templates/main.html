@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% block head %}
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+<link rel="stylesheet" href="{{url_for('static', filename='toast/toast.css')}}"/>
+	<script src="{{url_for('static', filename='toast/toast.js')}}" charset="utf-8"></script>
+</head>
+<script type="text/javascript">
+function init () {
+	drawToast("HTML toast likes Android");
+}
+</script>
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='font.css')}}"/>
+<style>
+body {
+	background-color: rgb(230, 243, 255);
+    font-family: 'MyWebFont';
+}
+img {
+	display:block;
+	margin:auto;
+}
+#page_title{
+    font-family : 'MyWebFont';
+    text-align: center;
+    color: gray;
+}
+#btn1 {
+	width: 150px;
+	height: 150px;
+	font-size:32px;
+	font-family: 'MyWebFont';
+	color: rgb(165, 210, 134);
+	background: white;
+	border: solid 5px white;
+	border-radius: 50%;
+    margin-top: 50px;
+}
+#btn2 {
+	width: 150px;
+	height: 150px;
+	font-size:32px;
+	font-family: 'MyWebFont';
+	color: rgb(251, 199, 205);
+	background: white;
+	border: solid 5px white;
+	border-radius: 50%;
+	margin-top: 50px;
+}
+    #btn3 {
+	width: 150px;
+	height: 150px;
+	font-size:32px;
+	font-family: 'MyWebFont';
+	color: rgb(165, 210, 134);
+	background: white;
+	border: solid 5px white;
+	border-radius: 50%;
+    margin-top: 50px;
+}
+
+</style>
+{% block style %}{% endblock %}
+
+<body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <script type="text/javascript">drawToast("{{ message }}")</script>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<br><br>
+
+
+<br>
+
+<center><div id="content">{% block content %}{% endblock %}</div></center>
+<br><br><br><br>
+<img width="100;" height="70;" align="bottom;" src="{{ url_for('static', filename = 'khu.PNG') }}"/>
+
+
+
+
+
+</body>
+
+</html>

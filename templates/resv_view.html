@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+{% block title %}예약 현황{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block style %}
+<style>
+#list_item{
+    width: 275px;
+	height: 100px;
+	font-size:20px;
+	font-family: '배달의민족 도현';
+	color: gray;
+	background: white;
+	border: solid 5px white;
+	border-radius: 5px;
+	vertical-align: bottom;
+	line-height: 150%;
+    display: inline-block;
+}
+#delete_btn{
+    width: 47px;
+	height: 110px;
+    box-sizing: border-box;
+    font-size: 20px;
+	font-family: '배달의민족 도현';
+	background-color: rgb(255, 101, 101);
+	color: white;
+	border-radius:5px;
+	border: solid 5px rgb(255, 101, 101);
+    float: right;
+    display: inline-block;
+
+}
+
+</style>
+{% endblock %}
+{% block content %}
+    <a href="/myhome"> <img style="border-radius:15px;" width="300px;" src="{{ url_for('static', filename = 'logo.png') }}"/></a>
+    <h1>예약 현황</h1>
+  {% if not resv_list %}
+    <p>예약 데이터가 없습니다.</p>
+{% endif %}
+    <table>
+        {% for resv_item in resv_list %}
+            <tr><td><form method="post" action="/deleteresv"><div id="list_item">{{ resv_item[3] }} {{ resv_item[4] }}<br>{{ resv_item[6].strftime('%Y-%m-%d') }}<br>{{ resv_item[6].strftime('%H:%M') }} ~ {{ resv_item[7].strftime('%H:%M') }}<form method="post" action="/deleteresv"><input type="hidden" name="resv_id" value="{{ resv_item[0] }}"></div><input type="submit" id="delete_btn" value="X"></form></td></tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "main.html" %}
+{% block title %}Select Menu{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block style %}
+<style>
+body {
+	background-color: rgb(230, 243, 255);
+}
+img {
+	display:block;
+	margin:auto;
+}
+#btn1 {
+	width: 150px;
+	height: 150px;
+	font-size:32px;
+	font-family: 'MyWebFont';
+	color: rgb(165, 210, 134);
+	background: white;
+	border: solid 5px white;
+	border-radius: 50%;
+    margin-top: 50px;
+}
+#btn2 {
+	width: 150px;
+	height: 150px;
+	font-size:32px;
+	font-family: 'MyWebFont';
+	color: rgb(251, 199, 205);
+	background: white;
+	border: solid 5px white;
+	border-radius: 50%;
+	margin-top: 50px;
+}
+    #btn3 {
+	width: 150px;
+	height: 150px;
+	font-size:32px;
+	font-family: 'MyWebFont';
+	color: rgb(165, 210, 134);
+	background: white;
+	border: solid 5px white;
+	border-radius: 50%;
+    margin-top: 50px;
+}
+
+
+</style>
+{% endblock %}
+{% block content %}
+<br><br>
+<img style="border-radius:15px;" width="300px;" src="{{ url_for('static', filename = 'logo.png') }}"/><br>
+
+<br>
+
+<center><button id="btn1" onclick="window.location.href='/search'">대여하기</button></center>
+<center><button id="btn2" onclick="window.location.href='/viewresv'">대여현황</button></center>
+<center><button id="btn3" onclick="window.location.href='/logout'">로그아웃</button></center>
+{% endblock %}

@@ -1,0 +1,212 @@
+{% extends "main.html" %}
+{% block head %}
+
+{% endblock %}
+{% block style %}
+<style>
+body {
+	background-color: rgb(230, 243, 255);
+}
+
+#select1 {
+    width: 300px;
+    border: 3px solid rgb(191, 191, 191);
+    border-radius: 4px;
+    font-size: 20px;
+	font-family: '배달의민족 도현';
+    background-color: rgb(230, 243, 255);
+    background-position: 5px 2.5px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: url('select-arrow.png') no-repeat 95% 50%;
+    padding: 10px 10px 10px 20px;
+}
+select::-ms-expand {
+	display: none;
+}
+#select2 {
+    width: 150px;
+    border: 3px solid rgb(191, 191, 191);
+    border-radius: 4px;
+    font-size: 20px;
+	font-family: '배달의민족 도현';
+    background-color: rgb(230, 243, 255);
+    background-position: 5px 2.5px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: url('select-arrow.png') no-repeat 95% 50%;
+    padding: 10px 10px 10px 20px;
+	margin-left: 50;
+}
+input[type=number] {
+	width: 109px;
+    border: 3px solid rgb(191, 191, 191);
+    border-radius: 4px;
+    font-size: 20px;
+	font-family: '배달의민족 도현';
+    background-color: rgb(230, 243, 255);
+    background-position: 5px 2.5px;
+    padding: 10px 10px 10px 20px;
+	margin-left: 50;
+}
+input[type=text] {
+	width: 300px;
+    box-sizing: border-box;
+    border: 3px solid rgb(191, 191, 191);
+    border-radius: 4px;
+    font-size: 18px;
+	font-family: '배달의민족 도현';
+    background-color: rgb(230, 243, 255);
+    padding: 10px 10px 10px 20px;
+}
+input[type=submit] {
+	width: 300px;
+    box-sizing: border-box;
+    border: 3px solid rgb(251, 199, 205);
+    border-radius: 4px;
+    font-size: 25px;
+	font-family: '배달의민족 도현';
+    background-color: rgb(251, 199, 205);
+	padding: 10px 10px 10px 10px;
+}
+input[type=datetime-local] {
+	width: 320px;
+    box-sizing: border-box;
+    border: 3px solid rgb(191, 191, 191);
+    border-radius: 4px;
+    font-size: 18px;
+	font-family: '배달의민족 도현';
+    background-color: rgb(230, 243, 255);
+	padding: 10px 10px 10px 20px;
+}
+#btn1 {
+	width: 147px;
+	height: 60px;
+	font-size:16px;
+	font-family: '배달의민족 도현';
+	text-align: left;
+	color: gray;
+	background: white;
+	border: solid 5px white;
+	border-radius: 5px;
+	vertical-align: bottom;
+}
+#btn2 {
+	width: 147px;
+	height: 60px;
+	font-size:25px;
+	font-family: '배달의민족 도현';
+	color: rgb(045, 098, 155);
+	background: white;
+	border: solid 5px white;
+	border-radius: 5px;
+}
+#btn3 {
+	width: 147px;
+	height: 60px;
+	font-size:25px;
+	font-family: '배달의민족 도현';
+	color: rgb(164, 025, 018);
+	background: white;
+	border: solid 5px white;
+	border-radius: 5px;
+}
+#btn3 {
+	width: 65px;
+	height: 65px;
+	font-size:25px;
+	font-family: '배달의민족 도현';
+	color: rgb(164, 025, 018);
+	border-radius: 50%;
+	border: solid 5px rgb(230, 243, 255);
+	background-image: url('back-arrow.png');
+}
+form {
+	font-family: '배달의민족 도현';
+	font-size:20px;
+}
+#wrapper {
+    width: 400px;
+    text-align: center;
+    display: inline-block;
+
+}
+select{
+    width: 60%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+	font-family: '배달의민족 도현';
+    display: inline;
+    float: right;
+    border-radius: 5px;
+}
+#maxpeople{
+    width: 60%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+	font-family: '배달의민족 도현';
+    display: inline;
+    float: right;
+    border-radius: 5px;
+}
+.item{
+    height: 50px;
+    margin: 10px;
+
+}
+h3 {
+    display: inline-block;
+    vertical-align: middle;
+margin-top: 15px;
+
+}
+</style>
+{% endblock %}
+{% block content %}
+
+
+
+<br>
+<a href="/myhome"> <img style="border-radius:15px;" width="300px;" src="{{ url_for('static', filename = 'logo.png') }}"/></a>
+<div id="wrapper">
+<form action="/search/result" method="post">
+
+<br><br>
+
+<div class="item"><H3>건물</H3>
+            <select name="deptid" required><option value="전자정보대학">전자정보대학</option>
+            <option value="외국어대학">외국어대학</option>
+            <option value="공과대학">공과대학</option>
+            <option value="예술,디자인대학">예술,디자인대학</option>
+            <option value="체육대학">체육대학</option>
+            <option value="국제대학">국제대학</option>
+            <option value="1호관 테니스장">1호관 테니스장</option>
+            <option value="3호관 운동장">3호관 운동장</option>
+            <option value="3호관 테니스장">3호관 테니스장</option>
+            <option value="6호관 야구장">6호관 야구장</option>
+            <option value="6호관 운동장">6호관 운동장</option>
+            <option value="골프 연습장">골프 연습장</option>
+            <option value="6호관 운동장">6호관 운동장</option>
+            <option value="수영장">수영장</option>
+            <option value="필드 하키장(공과대학 앞)">필드 하키장(공과대학 앞)</option>
+            <option value="학생회관">학생회관</option></select>
+            <br></div>
+    <center><div class="item"><H3>사용 인원 수</H3><input type="number" id="maxpeople" name="capacity" min="1" max="200"></div></center><br>
+
+
+<center>시작 시간<br><br><input type="datetime-local" name="starttime"></center><br>
+<center>종료 시간<br><br><input type="datetime-local" name="endtime"></center><br>
+
+
+<br>
+    <center><input type="submit" value="검색"></center></form>
+    </div>
+{% endblock %}
